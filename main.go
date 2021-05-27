@@ -42,6 +42,7 @@ func create(secret, name, issuer string, png bool) {
 		token := make([]byte, 8)
 		rand.Read(token)
 		secret = hex.EncodeToString(token)
+		fmt.Println(secret)
 	}
 	secret = base32.StdEncoding.EncodeToString([]byte(secret))
 	URL, err := url.Parse("otpauth://totp")
